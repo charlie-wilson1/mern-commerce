@@ -1,4 +1,5 @@
 import React from "react"
+import { formatPrice } from "../utils/helpers"
 import { Card } from "react-bootstrap"
 
 const Product = ({ product }) => {
@@ -20,7 +21,7 @@ const Product = ({ product }) => {
           </div>
         </Card.Text>
 
-        <Card.Text as="h3">${product.price}</Card.Text>
+        <Card.Text as="h3">{formatPrice(product.price)}</Card.Text>
       </Card.Body>
     </Card>
   )
