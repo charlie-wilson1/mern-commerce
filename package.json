@@ -1,0 +1,23 @@
+{
+  "name": "mern-commerce",
+  "version": "1.0.0",
+  "description": "MERN Shopping Cart App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/locaulker/mern-commerce.git"
+  },
+  "keywords": [],
+  "author": "Lawrence O Caulker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/locaulker/mern-commerce/issues"
+  },
+  "homepage": "https://github.com/locaulker/mern-commerce#readme",
+  "dependencies": {
+    "express": "4.17.1"
+  }
+}
