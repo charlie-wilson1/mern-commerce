@@ -1,6 +1,7 @@
 import React from "react"
 import { formatPrice } from "../utils/helpers"
 import { Card } from "react-bootstrap"
+import Rating from "./Rating"
 
 const Product = ({ product }) => {
   return (
@@ -16,9 +17,10 @@ const Product = ({ product }) => {
           </Card.Title>
         </a>
         <Card.Text as="div">
-          <div className="my-3">
-            {product.rating} from {product.numReviews} reviews
-          </div>
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews} Reviews`}
+          />
         </Card.Text>
 
         <Card.Text as="h3">{formatPrice(product.price)}</Card.Text>

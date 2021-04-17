@@ -1,3 +1,13 @@
 main {
   min-height: 80vh;
 }
+
+.brand {
+  color: #fd7e14 !important;
+}
+h3 {
+  padding: 1rem 0;
+}
+.rating span {
+  margin: 0.1rem;
+}
