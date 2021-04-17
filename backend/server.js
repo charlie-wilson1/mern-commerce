@@ -4,9 +4,9 @@ const products = require("./data/products")
 // initialize express
 const app = express()
 
-// routes
+// api routes
 app.get("/", (req, res) => {
-  res.send("API is running...")
+  res.send("API is running....")
 })
 
 // --- get all products
