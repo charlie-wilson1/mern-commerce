@@ -2,8 +2,12 @@ main {
   min-height: 80vh;
 }
 
-.brand {
+.brand,
+.link {
   color: #fd7e14 !important;
+}
+.fas {
+  color: #fff;
 }
 h3 {
   padding: 1rem 0;
