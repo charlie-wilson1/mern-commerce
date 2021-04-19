@@ -1,6 +1,7 @@
 import express from "express"
 import dotenv from "dotenv"
 import color from "colors"
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js"
 import connectDB from "./config/db.js"
 
 // product routes
@@ -21,6 +22,12 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/products", productRoutes)
+
+// fallback for 404 - Not Found
+app.use(notFound)
+
+// error middleware
+app.use(errorHandler)
 
 // PORT Settings
 const MODE = process.env.NODE_ENV
