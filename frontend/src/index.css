@@ -6,8 +6,18 @@ main {
 .link {
   color: #fd7e14 !important;
 }
-.fas {
+.icon {
   color: #fff;
+}
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+  /* text-transform: capitalize; */
+}
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+  /* text-transform: capitalize; */
 }
 h3 {
   padding: 1rem 0;
