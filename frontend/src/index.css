@@ -25,7 +25,8 @@ h3 {
 .rating span {
   margin: 0.1rem;
 }
-.register {
+.register,
+.login {
   font-weight: 700;
   color: #fd7e14;
   text-transform: uppercase;
