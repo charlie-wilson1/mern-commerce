@@ -14,6 +14,8 @@ const PlaceOrder = () => {
     (acc, item) => acc + item.price * item.qty,
     0
   )
+
+  // Edit Tax and Shipping Values
   cart.shippingPrice = cart.itemsPrice > 100 ? 0 : 100
   cart.taxPrice = cart.itemsPrice * 0.15
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice
