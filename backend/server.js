@@ -7,6 +7,7 @@ import connectDB from "./config/db.js"
 // routes
 import productRoutes from "./routes/productRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
+import orderRoutes from "./routes/orderRoutes.js"
 
 // get environment variables
 dotenv.config()
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/products", productRoutes)
 app.use("/api/users", userRoutes)
+app.use("/api/orders", orderRoutes)
 
 // fallback for 404 - Not Found
 app.use(notFound)
