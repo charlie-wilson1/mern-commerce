@@ -3,16 +3,19 @@ import thunk from "redux-thunk"
 import { composeWithDevTools } from "redux-devtools-extension"
 import {
   productListReducer,
-  productDetailsReducer,
+  productDetailsReducer
 } from "./reducers/productReducers"
 import { cartReducer } from "./reducers/cartReducers"
 import {
   userLoginReducer,
   userRegisterReducer,
   userDetailsReducer,
-  userUpdateProfileReducer,
+  userUpdateProfileReducer
 } from "./reducers/userReducers"
-import { orderCreateReducer } from "./reducers/orderReducers"
+import {
+  orderCreateReducer,
+  orderDetailsReducer
+} from "./reducers/orderReducers"
 
 // combine All reducers
 const reducer = combineReducers({
@@ -24,6 +27,7 @@ const reducer = combineReducers({
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
   orderCreate: orderCreateReducer,
+  orderDetails: orderDetailsReducer
 })
 
 // local Storage
@@ -43,9 +47,9 @@ const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
 const initialState = {
   cart: {
     cartItems: cartItemsFromStorage,
-    shippingAddress: shippingAddressFromStorage,
+    shippingAddress: shippingAddressFromStorage
   },
-  userLogin: { userInfo: userInfoFromStorage },
+  userLogin: { userInfo: userInfoFromStorage }
 }
 
 // array of middlewares
