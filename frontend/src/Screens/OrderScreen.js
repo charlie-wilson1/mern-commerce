@@ -20,7 +20,7 @@ const PlaceOrderScreen = ({ history }) => {
 
   // Edit Tax and Shipping Values
   cart.shippingPrice = cart.itemsPrice > 100 ? 0 : 100
-  cart.taxPrice = 0.15 * cart.itemsPrice
+  cart.taxPrice = cart.itemsPrice * 0.15
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice
 
   // order create
@@ -35,7 +35,7 @@ const PlaceOrderScreen = ({ history }) => {
   }, [history, success])
 
   // order handler
-  const PlaceOrderHandler = () => {
+  const OrderHandler = () => {
     dispatch(
       createOrder({
         orderItems: cart.cartItems,
@@ -155,4 +155,4 @@ const PlaceOrderScreen = ({ history }) => {
   )
 }
 
-export default PlaceOrderScreen
+export default OrderScreen

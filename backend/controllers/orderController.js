@@ -8,29 +8,28 @@ import Order from "../models/orderModel.js"
  */
 const addOrderItems = asyncHandler(async (req, res) => {
   const {
-    OrderItems,
+    orderItems,
     shippingAddress,
     paymentMethod,
     itemsPrice,
     taxPrice,
     shippingPrice,
-    totalPrice
+    totalPrice,
   } = req.body
 
-  if (OrderItems && OrderItems.length === 0) {
+  if (orderItems && orderItems.length === 0) {
     res.status(400)
     throw new Error("No Order Items")
-    return
   } else {
     const order = new Order({
-      OrderItems,
+      orderItems,
       user: req.user._id,
       shippingAddress,
       paymentMethod,
       itemsPrice,
       taxPrice,
       shippingPrice,
-      totalPrice
+      totalPrice,
     })
 
     const createdOrder = await order.save()
