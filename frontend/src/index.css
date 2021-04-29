@@ -1,7 +1,10 @@
 main {
   min-height: 80vh;
 }
-
+strong {
+  font-weight: 700;
+  color: #fd7e14;
+}
 .brand,
 .link {
   color: #fd7e14 !important;
