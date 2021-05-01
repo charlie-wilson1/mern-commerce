@@ -16,6 +16,7 @@ import {
   orderCreateReducer,
   orderDetailsReducer,
   orderPayReducer,
+  orderListMyReducer,
 } from "./reducers/orderReducers"
 
 // combine All reducers
@@ -30,6 +31,7 @@ const reducer = combineReducers({
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
+  orderListMy: orderListMyReducer,
 })
 
 // local Storage
