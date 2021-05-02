@@ -6,15 +6,22 @@ import Message from "../components/Message"
 import Loader from "../components/Loader"
 import { listUsers } from "../actions/userActions"
 
-const UserListScreen = () => {
+const UserListScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const userList = useSelector(state => state.userList)
   const { loading, error, users } = userList
 
+  const userLogin = useSelector(state => state.userLogin)
+  const { userInfo } = userLogin
+
   useEffect(() => {
-    dispatch(listUsers())
-  }, [dispatch])
+    if (userInfo && userInfo.isAdmin) {
+      dispatch(listUsers())
+    } else {
+      history.push("/login")
+    }
+  }, [dispatch, history])
 
   const deleteHandler = id => {
     console.log("user deleted")
@@ -28,13 +35,13 @@ const UserListScreen = () => {
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <Table striped borderd hover responsive className="table-sm">
+        <Table striped bordered hover responsive className="table-sm">
           <thead>
             <tr>
               <th>User ID</th>
               <th>NAME</th>
               <th>EMAIL</th>
-              <th>ADMIN</th>
+              <th style={{ textAlign: "center" }}>ADMIN</th>
               <th></th>
             </tr>
           </thead>
@@ -53,7 +60,7 @@ const UserListScreen = () => {
                     <i className="fas fa-times" style={{ color: "red" }}></i>
                   )}
                 </td>
-                <td>
+                <td style={{ textAlign: "center" }}>
                   <LinkContainer to={`/user/${user._id}/edit`}>
                     <Button variant="dark" className="btn-sm">
                       <i className="fas fa-edit"></i>
