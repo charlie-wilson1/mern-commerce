@@ -24,7 +24,7 @@ const UserEditScreen = ({ match, history }) => {
   const {
     loading: loadingUpdate,
     error: errorUpdate,
-    success: successUpdate
+    success: successUpdate,
   } = userUpdate
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const UserEditScreen = ({ match, history }) => {
         setIsAdmin(user.isAdmin)
       }
     }
-  }, [dispatch, userId, user, successUpdate])
+  }, [dispatch, history, userId, user, successUpdate])
 
   const submitHandler = e => {
     e.preventDefault()
@@ -55,6 +55,8 @@ const UserEditScreen = ({ match, history }) => {
 
       <FormContainer>
         <h1>Edit User</h1>
+        {loadingUpdate && <Loader />}
+        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
           <Loader />
         ) : error ? (
