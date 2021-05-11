@@ -39,9 +39,8 @@ const OrderListScreen = ({ history }) => {
               <th>USER</th>
               <th>DATE</th>
               <th>TOTAL</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
-              {/* <th style={{ textAlign: "center" }}>ADMIN</th> */}
+              <th style={{ textAlign: "center" }}>PAID</th>
+              <th style={{ textAlign: "center" }}>DELIVERED</th>
               <th></th>
             </tr>
           </thead>
@@ -67,7 +66,7 @@ const OrderListScreen = ({ history }) => {
                   )}
                 </td>
                 <td style={{ textAlign: "center" }}>
-                  <LinkContainer to={`/admin/order/${order._id}`}>
+                  <LinkContainer to={`/order/${order._id}`}>
                     <Button variant="dark" className="btn-sm">
                       Details
                     </Button>
