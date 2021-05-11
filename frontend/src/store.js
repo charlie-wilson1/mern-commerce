@@ -6,7 +6,7 @@ import {
   productDetailsReducer,
   productDeleteReducer,
   productCreateReducer,
-  productUpdateReducer,
+  productUpdateReducer
 } from "./reducers/productReducers"
 import { cartReducer } from "./reducers/cartReducers"
 import {
@@ -16,14 +16,15 @@ import {
   userUpdateProfileReducer,
   userListReducer,
   userDeleteReducer,
-  userUpdateReducer,
+  userUpdateReducer
 } from "./reducers/userReducers"
 import {
   orderCreateReducer,
   orderDetailsReducer,
   orderPayReducer,
+  orderDeliverReducer,
   orderListMyReducer,
-  orderListReducer,
+  orderListReducer
 } from "./reducers/orderReducers"
 
 // combine All reducers
@@ -44,8 +45,9 @@ const reducer = combineReducers({
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
+  orderDeliver: orderDeliverReducer,
   orderListMy: orderListMyReducer,
-  orderList: orderListReducer,
+  orderList: orderListReducer
 })
 
 // local Storage
@@ -65,9 +67,9 @@ const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
 const initialState = {
   cart: {
     cartItems: cartItemsFromStorage,
-    shippingAddress: shippingAddressFromStorage,
+    shippingAddress: shippingAddressFromStorage
   },
-  userLogin: { userInfo: userInfoFromStorage },
+  userLogin: { userInfo: userInfoFromStorage }
 }
 
 // array of middlewares
