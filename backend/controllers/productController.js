@@ -7,7 +7,16 @@ import Product from "../models/productModel.js"
  * @access  Public
  */
 const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({})
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: "i"
+        }
+      }
+    : {}
+
+  const products = await Product.find({ ...keyword })
 
   res.json(products)
 })
@@ -60,7 +69,7 @@ const createProduct = asyncHandler(async (req, res) => {
     category: "Sample category",
     countInStock: 0,
     numReviews: 0,
-    description: "Sample description",
+    description: "Sample description"
   })
 
   const createdProduct = await product.save()
@@ -119,7 +128,7 @@ const createProductReview = asyncHandler(async (req, res) => {
       name: req.user.name,
       rating: Number(rating),
       comment,
-      user: req.user._id,
+      user: req.user._id
     }
 
     product.reviews.push(review)
@@ -141,5 +150,5 @@ export {
   deleteProduct,
   createProduct,
   updateProduct,
-  createProductReview,
+  createProductReview
 }
