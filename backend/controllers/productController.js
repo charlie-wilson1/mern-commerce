@@ -7,18 +7,24 @@ import Product from "../models/productModel.js"
  * @access  Public
  */
 const getProducts = asyncHandler(async (req, res) => {
+  const pageSize = 4
+  const page = Number(req.query.pageNumber) || 1
+
   const keyword = req.query.keyword
     ? {
         name: {
           $regex: req.query.keyword,
-          $options: "i"
-        }
+          $options: "i",
+        },
       }
     : {}
 
+  const count = await Product.countDocuments({ ...keyword })
   const products = await Product.find({ ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1))
 
-  res.json(products)
+  res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
 
 /**
@@ -69,7 +75,7 @@ const createProduct = asyncHandler(async (req, res) => {
     category: "Sample category",
     countInStock: 0,
     numReviews: 0,
-    description: "Sample description"
+    description: "Sample description",
   })
 
   const createdProduct = await product.save()
@@ -128,7 +134,7 @@ const createProductReview = asyncHandler(async (req, res) => {
       name: req.user.name,
       rating: Number(rating),
       comment,
-      user: req.user._id
+      user: req.user._id,
     }
 
     product.reviews.push(review)
@@ -150,5 +156,5 @@ export {
   deleteProduct,
   createProduct,
   updateProduct,
-  createProductReview
+  createProductReview,
 }
