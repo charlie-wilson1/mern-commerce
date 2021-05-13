@@ -58,6 +58,7 @@ const ProductListScreen = ({ history, match }) => {
     successDelete,
     successCreate,
     createdProduct,
+    pageNumber,
   ])
 
   const deleteHandler = id => {
@@ -130,7 +131,7 @@ const ProductListScreen = ({ history, match }) => {
               ))}
             </tbody>
           </Table>
-          <Paginate pages={pages} />
+          <Paginate pages={pages} page={page} isAdmin={true} />
         </>
       )}
     </>
